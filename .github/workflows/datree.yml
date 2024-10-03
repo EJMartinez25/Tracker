@@ -1,0 +1,15 @@
+name: Auto Move Issues
+
+on:
+  issues:
+    types: [opened, closed]
+
+jobs:
+  automate-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move issue to "Done" when closed
+        if: github.event.action == 'closed'
+        run: |
+          echo "Moving issue to 'Done'..."
+          # You can use GitHub API here or other automation to manage task states
